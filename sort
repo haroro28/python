@@ -1,0 +1,97 @@
+#Bubble_sort
+def tukar (L1, i, j):
+    L1[i], L1[j] = L1[j], L1[i]
+
+def bubble1 (L):
+    ubah = True
+    pj = len(L)
+    while pj > 1 and ubah :
+        ubah = False
+        j = 1
+        while j < pj :
+            if L[j]<L[j-1]:
+                ubah = True
+                tukar(L1, j, j-1)
+            j+=1
+            print (L)
+        if not ubah :
+            print("hasil akhir = %s" %str(L))
+        pj-=1
+
+print("======================")
+print("Sebelum Bubble Sort")
+L1 = [67, 13, 71, 39, 45]
+print(L1)
+print("Setelah Bubble Sort")
+bubble1(L1)
+
+#Selection_sort
+def selectionSort (L):
+    for i in range (len(L)-1, 0, -1):
+        max = 0
+        for j in range (1, i+1):
+            maxt = L[max]
+            if maxt < L[j]:
+                max = j
+        L[max], L[i] = L[i], L[max]
+L=[67,13,71,39,45]
+print ("Sebelum diurutkan = ", L)
+selectionSort(L)
+print ("Setelah diurutkan = ", L)
+
+#Selection_sort_while
+def selectionSort (L):
+    awal = len(L)-1
+    akhir = 0
+    while awal>=akhir :
+        max = 0
+        for j in range (1, awal+1):
+            maxt = L[max]
+            if maxt < L[j]:
+                max = j
+        L[max], L[awal] = L[awal], L[max]
+        awal-=1
+L=[67,0,13,71,39,45]
+print ("Sebelum diurutkan = ", L)
+selectionSort(L)
+print ("Setelah diurutkan = ", L)
+
+#Selection_sort_while_luardalam
+def selectionSort (L):
+    awal = len(L)-1
+    akhir = 0
+    while awal>akhir :
+        max = 0
+        j = 1
+        while j<awal+1:
+            maxt = L[max]
+            if maxt < L[j]:
+                max = j
+            j+=1
+        L[max], L[awal] = L[awal], L[max]
+        awal-=1
+L=[67,13,71,39,45]
+print ("Sebelum diurutkan = ", L)
+selectionSort(L)
+print ("Setelah diurutkan = ", L)
+
+#Quick_sort
+def QuickSort(L, awal, akhir):
+    if awal<akhir:
+        pindex=partition(L, awal, akhir)
+        QuickSort(L, awal, pindex-1)
+        QuickSort(L, pindex+1, akhir)
+def partition(L, awal, akhir):
+    pivot = L[akhir]
+    pindex = awal
+    for i in range (awal, akhir):
+        if (L[i]<=pivot):
+            L[i], L[pindex] = L[pindex], L[i]
+            pindex+=1
+    L[pindex], L[akhir]=L[akhir], L[pindex]
+    return pindex
+
+L=[67,13,71,45,39]
+print("Sebelum diurutkan = ", L)
+QuickSort(L, 0, len(L)-1)
+print("Setelah diurutkan = ", L)
